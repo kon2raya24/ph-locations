@@ -1,0 +1,1 @@
+{"name":"ph-locations","version":"1.0.0","description":"Philippine locations — regions, provinces, cities, barangays","main":"dist/index.js","types":"dist/index.d.ts","scripts":{"build":"tsc"},"keywords":["philippines","locations","regions","provinces"],"author":"kon2raya","license":"MIT"}
