@@ -11,6 +11,9 @@ import { CITIES } from './cities';
 import { BARANGAYS } from './barangays';
 import { Region, Province, City, Barangay, SearchOptions, SearchResult, LocationStats } from './types';
 
+// Type exports for consumers
+// Add specific types as needed
+
 // ═══════════════════════════════════════════════════════════════════
 // Region Lookups
 // ═══════════════════════════════════════════════════════════════════
