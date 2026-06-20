@@ -1,7 +1,7 @@
 {
   "name": "ph-locations",
   "version": "1.0.0",
-  "description": "Comprehensive Philippine administrative location data — regions, provinces, cities/municipalities, and barangays with TypeScript support",
+  "description": "Comprehensive Philippine administrative location data \u2014 regions, provinces, cities/municipalities, and barangays with TypeScript support",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -46,5 +46,8 @@
     "jest": "^30.4.2",
     "ts-jest": "^29.4.11",
     "typescript": "^6.0.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
