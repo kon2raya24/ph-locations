@@ -28,6 +28,7 @@ import { Region, Province, City, Barangay, SearchOptions, SearchResult, Location
  * ```
  */
 export function getRegionByCode(code: string): Region | undefined {
+  if (code === null || code === undefined) throw new Error("Invalid input");
   return REGIONS.find(r => r.code === code);
 }
 
@@ -44,6 +45,7 @@ export function getRegionByCode(code: string): Region | undefined {
  * ```
  */
 export function getRegionByName(name: string): Region | undefined {
+  if (name === null || name === undefined) throw new Error("Invalid input");
   const lower = name.toLowerCase();
   return REGIONS.find(r =>
     r.name.toLowerCase().includes(lower) ||
@@ -70,6 +72,7 @@ export function getAllRegions(): Region[] {
  * @returns The matching province or undefined
  */
 export function getProvinceByCode(code: string): Province | undefined {
+  if (code === null || code === undefined) throw new Error("Invalid input");
   return PROVINCES.find(p => p.code === code);
 }
 
@@ -86,6 +89,7 @@ export function getProvinceByCode(code: string): Province | undefined {
  * ```
  */
 export function getProvinceByName(name: string): Province | undefined {
+  if (name === null || name === undefined) throw new Error("Invalid input");
   const lower = name.toLowerCase();
   return PROVINCES.find(p => p.name.toLowerCase().includes(lower));
 }
@@ -111,6 +115,7 @@ export function getAllProvinces(): Province[] {
  * ```
  */
 export function getProvincesByRegion(regionCode: string): Province[] {
+  if (regionCode === null || regionCode === undefined) throw new Error("Invalid input");
   return PROVINCES.filter(p => p.regionCode === regionCode);
 }
 
@@ -125,6 +130,7 @@ export function getProvincesByRegion(regionCode: string): Province[] {
  * @returns The matching city or undefined
  */
 export function getCityByCode(code: string): City | undefined {
+  if (code === null || code === undefined) throw new Error("Invalid input");
   return CITIES.find(c => c.code === code);
 }
 
@@ -141,6 +147,7 @@ export function getCityByCode(code: string): City | undefined {
  * ```
  */
 export function getCityByName(name: string): City | undefined {
+  if (name === null || name === undefined) throw new Error("Invalid input");
   const lower = name.toLowerCase();
   return CITIES.find(c => c.name.toLowerCase().includes(lower));
 }
@@ -166,6 +173,7 @@ export function getAllCities(): City[] {
  * ```
  */
 export function getCitiesByProvince(provinceCode: string): City[] {
+  if (provinceCode === null || provinceCode === undefined) throw new Error("Invalid input");
   return CITIES.filter(c => c.provinceCode === provinceCode);
 }
 
@@ -176,6 +184,7 @@ export function getCitiesByProvince(provinceCode: string): City[] {
  * @returns Array of cities/municipalities in that region
  */
 export function getCitiesByRegion(regionCode: string): City[] {
+  if (regionCode === null || regionCode === undefined) throw new Error("Invalid input");
   return CITIES.filter(c => c.regionCode === regionCode);
 }
 
@@ -186,6 +195,7 @@ export function getCitiesByRegion(regionCode: string): City[] {
  * @returns Array of cities in that province
  */
 export function getCityCitiesByProvince(provinceCode: string): City[] {
+  if (provinceCode === null || provinceCode === undefined) throw new Error("Invalid input");
   return CITIES.filter(c => c.provinceCode === provinceCode && c.classification === 'city');
 }
 
@@ -196,6 +206,7 @@ export function getCityCitiesByProvince(provinceCode: string): City[] {
  * @returns Array of municipalities in that province
  */
 export function getMunicipalitiesByProvince(provinceCode: string): City[] {
+  if (provinceCode === null || provinceCode === undefined) throw new Error("Invalid input");
   return CITIES.filter(c => c.provinceCode === provinceCode && c.classification === 'municipality');
 }
 
@@ -210,6 +221,7 @@ export function getMunicipalitiesByProvince(provinceCode: string): City[] {
  * @returns The matching barangay or undefined
  */
 export function getBarangayByCode(code: string): Barangay | undefined {
+  if (code === null || code === undefined) throw new Error("Invalid input");
   return BARANGAYS.find(b => b.code === code);
 }
 
@@ -220,6 +232,7 @@ export function getBarangayByCode(code: string): Barangay | undefined {
  * @returns The matching barangay or undefined
  */
 export function getBarangayByName(name: string): Barangay | undefined {
+  if (name === null || name === undefined) throw new Error("Invalid input");
   const lower = name.toLowerCase();
   return BARANGAYS.find(b => b.name.toLowerCase().includes(lower));
 }
@@ -245,6 +258,7 @@ export function getAllBarangays(): Barangay[] {
  * ```
  */
 export function getBarangaysByCity(cityCode: string): Barangay[] {
+  if (cityCode === null || cityCode === undefined) throw new Error("Invalid input");
   return BARANGAYS.filter(b => b.cityCode === cityCode);
 }
 
@@ -255,6 +269,7 @@ export function getBarangaysByCity(cityCode: string): Barangay[] {
  * @returns Array of barangays in that province
  */
 export function getBarangaysByProvince(provinceCode: string): Barangay[] {
+  if (provinceCode === null || provinceCode === undefined) throw new Error("Invalid input");
   return BARANGAYS.filter(b => b.provinceCode === provinceCode);
 }
 
@@ -265,6 +280,7 @@ export function getBarangaysByProvince(provinceCode: string): Barangay[] {
  * @returns Array of barangays in that region
  */
 export function getBarangaysByRegion(regionCode: string): Barangay[] {
+  if (regionCode === null || regionCode === undefined) throw new Error("Invalid input");
   return BARANGAYS.filter(b => b.regionCode === regionCode);
 }
 
@@ -286,6 +302,7 @@ export function getBarangaysByRegion(regionCode: string): Barangay[] {
  * ```
  */
 export function searchLocations(query: string, options: SearchOptions = {}): SearchResult[] {
+  if (query === null || query === undefined) throw new Error("Invalid input");
   const lower = query.toLowerCase();
   const results: SearchResult[] = [];
 
@@ -386,6 +403,7 @@ export function searchLocations(query: string, options: SearchOptions = {}): Sea
  * ```
  */
 export function getCityHierarchy(cityCode: string): {
+  if (cityCode === null || cityCode === undefined) throw new Error("Invalid input");
   region: Region | undefined;
   province: Province | null;
   city: City | undefined;
@@ -408,6 +426,7 @@ export function getCityHierarchy(cityCode: string): {
  * @returns Object with region, province, city, and barangay
  */
 export function getBarangayHierarchy(barangayCode: string): {
+  if (barangayCode === null || barangayCode === undefined) throw new Error("Invalid input");
   region: Region | undefined;
   province: Province | undefined;
   city: City | undefined;
